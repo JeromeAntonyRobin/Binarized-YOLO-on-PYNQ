@@ -9,7 +9,7 @@ In order to install it on your PYNQ board, connect to the board, open a terminal
 
 ```shell
 # (on PYNQ v2.3 and later versions, tested up to v2.5)
-sudo pip3 install git+https://github.com/Xilinx/QNN-MO-PYNQ.git
+sudo pip3 install git+https://github.com/JeromeAntonyRobin/Binarized-YOLO-on-PYNQ.git
 ```
 
 NOTE: The board has to be connected to the internet.
