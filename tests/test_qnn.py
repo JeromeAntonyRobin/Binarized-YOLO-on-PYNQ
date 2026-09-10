@@ -40,7 +40,7 @@ import sys
 from qnn import utils
 from qnn import Dorefanet
 from qnn import TinierYolo
-from pynq import Xlnk
+from pynq import allocate
 from PIL import Image
 sys.path.append("/opt/darknet/python/")
 import ctypes
@@ -114,8 +114,8 @@ def test_dorefanet():
 	topn_golden = np.array([  2, 359, 250, 333, 227])
 	assert np.array_equal(topn,topn_golden), 'Dorefanet test failed'
 	classifier.deinit_accelerator()
-	xlnk = Xlnk();
-	xlnk.xlnk_reset()
+	# Legacy memory allocation  # Replaced by pynq.allocate;
+	# xlnk.xlnk_reset()  # Handled automatically now
 
 
 # Testing W1A3 with tinier-yolo on PASCAL-VOC
@@ -183,5 +183,5 @@ def test_tinier_yolo():
 	
 	assert filecmp.cmp(golden_probs,current_probs), 'Tinier-Yolo test failed'
 	classifier.deinit_accelerator()
-	xlnk = Xlnk();
-	xlnk.xlnk_reset()
+	# Legacy memory allocation  # Replaced by pynq.allocate;
+	# xlnk.xlnk_reset()  # Handled automatically now
